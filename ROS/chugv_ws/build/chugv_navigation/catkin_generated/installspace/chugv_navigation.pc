@@ -1,0 +1,8 @@
+prefix=/home/vpcom/chugv_ws/install
+
+Name: chugv_navigation
+Description: Description of chugv_navigation
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/vpcom/chugv_ws/install/lib 
+Requires: 

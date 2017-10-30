@@ -1,0 +1,30 @@
+<launch>
+	<param name="/use_sim_time" value="true" />
+
+	<!-- Launch World -->
+	<include file="$(find chugv_navigation)/launch/chugv_gazebo.launch"/>
+	<!--include file="$(find gazebo_ros)/launch/willowgarage_world.launch"/-->
+	<arg name="init_pose" value="-x 0 -y 0 -z 0"/>
+
+  <!-- urdf xml robot description loaded on the Parameter Server-->
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find chugv_description)/urdf/chugv.urdf.xacro'" />
+
+  <!-- spawn robot's model -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" 
+    args="-urdf -param robot_description -model chugv" />
+
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+	<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen"/>
+	
+	<node pkg="tf" type="static_transform_publisher" name="laser_link_broadcaster" args="0 0 1 0 0 0 base_link laser_link 100"/>	
+	<!-- Run Navigation Stack with AMCL -->
+	<node name="map_server" pkg="map_server" type="map_server" args="$(find chugv_navigation)/maps/CHScanMap.yaml"/>
+
+  <!--include file="$(find chugv_navigation)/move_base_config/slam_gmapping.xml"/-->
+	<include file="$(find chugv_navigation)/move_base_config/move_base.xml"/>
+	<include file="$(find chugv_navigation)/move_base_config/amcl_node.xml"/>
+	<param name="amcl/initial_pose_x" value="0"/>
+	<param name="amcl/initial_pose_y" value="0"/>
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find chugv_navigation)/single_robot.rviz" /> 
+</launch>

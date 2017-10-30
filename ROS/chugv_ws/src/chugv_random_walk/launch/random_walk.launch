@@ -1,0 +1,9 @@
+<launch>
+	<param name="/use_sim_time" value="true" />
+
+	<!-- Launch World -->
+	<include file="$(find chugv_gazebo)/launch/chugv_gazebo.launch"/>
+
+	<!-- Launch Random Walk Node -->
+	<node name="random_walk_node" pkg="chugv_random_walk" type="random_walk_node" output="screen"/>	
+</launch>

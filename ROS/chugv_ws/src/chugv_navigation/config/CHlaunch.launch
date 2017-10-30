@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<launch>
+
+  	<param name="/use_sim_time" value="true" />
+
+	<remap from="/base_scan" to="/scan" />  
+  	<!-- start up wg world -->
+  	<!--include file="$(find gazebo_worlds)/launch/wg_collada_world.launch"/-->
+
+	<!-- Launch World -->
+	<include file="$(find chugv_navigation)/launch/chugv_gazebo.launch"/>
+
+	<include file="$(find chugv_navigation)/config/move_base.launch"/>
+	<!--node name="map_server" pkg="map_server" type="map_server" args="$(find chugv_navigation)/maps/CHScanMap.yaml"/-->
+
+  	<!--arg name="model" default="$(find chapter8_tutorials)/urdf/robot1_base_04.xacro"/>
+  	<param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" /-->
+
+  	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
+  	<!-- start robot state publisher -->
+ 	<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" />
+
+
+	<node pkg="tf" type="static_transform_publisher" name="laser_link_broadcaster" args="0 0 1 0 0 0 base_link laser_link 100"/>
+
+  <!-- urdf xml robot description loaded on the Parameter Server-->
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find chugv_description)/urdf/chugv.urdf.xacro'" />
+	<!--node name="spawn_robot" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -z 0.1 -model robot_model" respawn="false" output="screen" /-->
+	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model chugv"/>
+
+	<!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find chugv_navigation)/config/navigation.vcg" /-->
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find chugv_navigation)/config/CyberHandsRobo.rviz" /> 
+
+</launch>
+

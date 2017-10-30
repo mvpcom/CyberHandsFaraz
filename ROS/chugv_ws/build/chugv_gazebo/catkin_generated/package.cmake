@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "chugv_gazebo")
+set(chugv_gazebo_MAINTAINER "vpcom <vpcom@todo.todo>")
+set(chugv_gazebo_DEPRECATED "")
+set(chugv_gazebo_VERSION "0.0.0")
+set(chugv_gazebo_BUILD_DEPENDS "chugv_description" "gazebo_msgs" "gazebo_plugins" "gazebo_ros" "gazebo_ros_control")
+set(chugv_gazebo_RUN_DEPENDS "chugv_description" "gazebo_msgs" "gazebo_plugins" "gazebo_ros" "gazebo_ros_control")
+set(chugv_gazebo_BUILDTOOL_DEPENDS "catkin")

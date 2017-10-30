@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "chugv_random_walk")
+set(chugv_random_walk_MAINTAINER "vpcom <vpcom@todo.todo>")
+set(chugv_random_walk_DEPRECATED "")
+set(chugv_random_walk_VERSION "0.0.0")
+set(chugv_random_walk_BUILD_DEPENDS "roscpp" "std_msgsvrospy")
+set(chugv_random_walk_RUN_DEPENDS "roscpp" "std_msgsvrospy")
+set(chugv_random_walk_BUILDTOOL_DEPENDS "catkin")

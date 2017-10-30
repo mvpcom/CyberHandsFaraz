@@ -1,0 +1,18 @@
+<launch>
+
+  <!-- Run the map server -->
+   <node name="map_server" pkg="map_server" type="map_server" args="$(find chugv_navigation)/maps/CHScanMap.yaml" output="screen"/>
+
+  <include file="$(find amcl)/examples/amcl_diff.launch" >
+  </include> 
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find chugv_navigation)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find chugv_navigation)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find chugv_navigation)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find chugv_navigation)/config/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find chugv_navigation)/config/base_local_planner_params.yaml" command="load" />
+  </node>
+
+
+</launch>

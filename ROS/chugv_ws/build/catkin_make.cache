@@ -1,0 +1,2 @@
+chugv_control:chugv_description:chugv_gazebo:chugv_navigation:chugv_random_walk:simple_navigation_goals
+-DCATKIN_DEVEL_PREFIX=/home/vpcom/chugv_ws/devel -DCMAKE_INSTALL_PREFIX=/home/vpcom/chugv_ws/install -G Unix Makefiles

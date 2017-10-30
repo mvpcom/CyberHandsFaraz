@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <physics type="ode">
+      <!--gravity>0 0 0</gravity-->
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>40</iters>
+          <sor>1.0</sor>
+        </solver>
+        <constraints>
+          <cfm>0.0</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>100.0</contact_max_correcting_vel>
+          <contact_surface_layer>0.0</contact_surface_layer>
+        </constraints>
+      </ode>
+      <max_step_size>0.001</max_step_size>
+    </physics>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <model name="gasstation">
+      <include>
+        <uri>model://gas_station</uri>
+        <pose>-2.0 7.0 0 0 0 0</pose>
+        <static>true</static>
+      </include>
+    </model>
+    <!--model name="barrier1">
+      <include>
+        <uri>model://jersey_barrier</uri>
+        <pose>-3 0 0 0 0 0</pose>
+        <static>true</static>
+      </include>
+    </model>
+    <model name="barrier2">
+      <include>
+        <uri>model://jersey_barrier</uri>
+        <pose>0 -3 0 0 0 1.57075</pose>
+        <static>true</static>
+      </include>
+    </model>
+    <model name="barrier3">
+      <include>
+        <uri>model://jersey_barrier</uri>
+        <pose>3 6 0 0 0 0</pose>
+        <static>true</static>
+      </include>
+    </model>
+    <model name="barrier4">
+      <include>
+        <uri>model://jersey_barrier</uri>
+        <pose>6 3 0 0 0 1.57075</pose>
+        <static>true</static>
+      </include>
+    </model-->
+  </world>
+</sdf>

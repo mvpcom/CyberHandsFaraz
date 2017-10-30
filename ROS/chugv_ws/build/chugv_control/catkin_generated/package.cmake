@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "chugv_control")
+set(chugv_control_MAINTAINER "vpcom <vpcom@todo.todo>")
+set(chugv_control_DEPRECATED "")
+set(chugv_control_VERSION "0.0.0")
+set(chugv_control_BUILD_DEPENDS "controller_manager" "geometry_msgs" "joy" "sensor_msgs" "std_msgs")
+set(chugv_control_RUN_DEPENDS "controller_manager" "geometry_msgs" "joy" "sensor_msgs" "std_msgs")
+set(chugv_control_BUILDTOOL_DEPENDS "catkin")
