@@ -45,6 +45,4 @@ roslaunch chugv_navigation chugv_navigation_gmapping.launch
 <img src="./3D-Model/Render/CyberHandsFARAZ-Material-Left.jpg" width="425"/> <img src="./3D-Model/Render/CyberHandsFARAZ-Material-Top.jpg" width="425"/> 
 
 ## Designer and Programmer:
-Name | E-mail
-:--- | ---:
-Mojtaba Valipour | vpcom@yahoo.com
+Mojtaba Vàlipour
